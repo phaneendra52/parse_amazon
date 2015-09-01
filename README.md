@@ -16,6 +16,7 @@ Step7: rails c
 Step8:
 
   website = Website.first
+
   website.parse_products
 
 Step9:

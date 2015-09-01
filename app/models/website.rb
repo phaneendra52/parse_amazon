@@ -22,6 +22,7 @@ class Website < ActiveRecord::Base
     @product_links.each_with_index do |product_link, product_index|
       agent = Mechanize.new
       page = agent.get(product_link)
+      sleep(3)
       @web_page.page_contents.each_with_index do |page_content, column_index|
       if product_index == 0
         cell = sheet.add_cell(0, column_index, page_content.content_field)
@@ -94,6 +95,7 @@ class Website < ActiveRecord::Base
           while next_page.present? do
             next_page_link = next_page.attr('href')
             @page = @agent.get(next_page_link)
+            sleep(3)
             next_page = @page.at(@next_page_link_path)
             get_product_view_links
           end
@@ -102,6 +104,7 @@ class Website < ActiveRecord::Base
           pagination_links.each do |pagination_link|
             pagination_link = pagination_link.attr('href')
             @page = @agent.get(pagination_link)
+            sleep(3)
             get_product_view_links
           end
         end

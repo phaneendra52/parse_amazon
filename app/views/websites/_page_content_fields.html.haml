@@ -1,0 +1,13 @@
+.fields.container
+  .gray-border
+    .form-group.row
+      .col-md-2
+        = f.label :content_field
+      .col-md-10
+        = f.text_field :content_field, autofocus: true, size: 100
+    .form-group.row
+      .col-md-2
+        = f.label :content_path
+      .col-md-10
+        = f.text_field :content_path, autofocus: true, size: 100
+    = link_to_remove_fields "Remove Page Content Fields", f

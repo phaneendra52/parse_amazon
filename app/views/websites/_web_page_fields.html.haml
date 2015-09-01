@@ -1,0 +1,48 @@
+.fields.container.gray-border
+  .form-group.row
+    .col-md-2
+      = f.label :url, "Web page url"
+    .col-md-10
+      = f.text_field :url, autofocus: true, size: 100
+  .form-group.row
+    .col-md-2
+      = f.label :next_page_link_path
+    .col-md-10
+      = f.text_field :next_page_link_path, autofocus: true, size: 100
+  .form-group.row
+    .col-md-2
+      = f.label :pagination_links_parent_path
+    .col-md-10
+      = f.text_field :pagination_links_parent_path, autofocus: true, size: 100
+  .form-group.row
+    .col-md-2
+      = f.label :pagination_links_path
+    .col-md-10
+      = f.text_field :pagination_links_path, autofocus: true, size: 100
+  .form-group.row
+    .col-md-2
+      = f.label :products_parent_path
+    .col-md-10
+      = f.text_field :products_parent_path, autofocus: true, size: 100
+  .form-group.row
+    .col-md-2
+      = f.label :products_link_path
+    .col-md-10
+      = f.text_field :products_link_path, autofocus: true, size: 100
+  .form-group.row
+    .col-md-2
+      = f.label :file_name
+    .col-md-10
+      = f.text_field :file_name, autofocus: true, size: 100
+  .form-group.row
+    .col-md-2
+      = f.label :sheet_name
+    .col-md-10
+      = f.text_field :sheet_name, autofocus: true, size: 100
+
+  = link_to_remove_fields "Remove Webpage Fields", f
+
+  = f.fields_for :page_contents do |builder|
+    = render 'page_content_fields', :f => builder
+  .row
+    = link_to_add_fields "Add a page content", f, :page_contents, "btn btn-default", "Add a new page content"
